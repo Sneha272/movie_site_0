@@ -13,9 +13,9 @@ const MoviesCard = ({id, name, summary, img }) => {
           <p className="card-text">{summary.slice(3,100)}</p>
           <Link to={`/about/${id}`}>
             {" "}
-            <a href="#" className="btn btn-primary">
+            <p href="#" className="btn btn-primary">
               Details
-            </a>
+            </p>
           </Link>
         </div>
       </div>
