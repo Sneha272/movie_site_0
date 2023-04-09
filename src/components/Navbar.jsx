@@ -1,7 +1,8 @@
-import React, { useContext } from 'react'
-import { MyContext } from '../context/contextProvider';
+import React, { useContext, useRef } from "react";
+import { MyContext } from "../context/contextProvider";
 const Navbar = () => {
-    const [search, setsearch] = useContext(MyContext);
+  const [search, setsearch] = useContext(MyContext);
+  const inputRef = useRef();
   return (
     <div>
       <nav className="navbar navbar-expand-md bg-body-tertiary  position-absolute top-0 start-0">
@@ -40,12 +41,20 @@ const Navbar = () => {
               <input
                 className="form-control me-2"
                 type="search"
-                value={search}
+                // value={search}
                 placeholder="Search"
                 aria-label="Search"
-                onChange={(e)=> setsearch(e.target.value)}
+                ref={inputRef}
+                // onChange={(e)=> setsearch(e.target.value)}
               />
-              <button className="btn btn-outline-success" type="submit">
+              <button
+                className="btn btn-outline-success"
+                type="submit"
+                onClick={(event) => {
+                  event.preventDefault();
+                  setsearch(inputRef.current.value);
+                }}
+              >
                 Search
               </button>
             </form>
@@ -54,6 +63,6 @@ const Navbar = () => {
       </nav>
     </div>
   );
-}
+};
 
-export default Navbar
+export default Navbar;
