@@ -9,7 +9,7 @@ import {
 }   
 from 'react-router-dom'; 
 import Home from './pages/Home';
-import MovieDetetails from './pages/MovieDetetails';
+import MovieDetails from './pages/MovieDetails';
 
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
     <Router>
       <Routes>  
         <Route exact path='/' element={< Home />}></Route>  
-        <Route exact path='/about/:id' element={< MovieDetetails />}></Route>  
+        <Route exact path='/about/:id' element={< MovieDetails />}></Route>  
         {/* <Route exact path='/contact' element={< Contact />}></Route>   */}
       </Routes>
     </Router>
